@@ -1,7 +1,4 @@
-class UsersController < ApplicationController
-
-  layout false
-  
+class SessionController < ApplicationController
   def index
   end
 

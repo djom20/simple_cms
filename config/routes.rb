@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
+  get 'session/index'
+
+  get 'session/create'
+
+  get 'session/store'
+
+  get 'session/show'
+
+  get 'session/edit'
+
+  get 'session/update'
+
+  get 'session/destroy'
+
   resources :home
 
-  scope 'api' do
-    scope 'v1' do
-      resources :users do
+  scope 'api', defaults: {format: :json} do
+    scope 'v1', defaults: {format: :json} do
+      resources :session do
         resources :tickets do
           resources :tasks
         end
