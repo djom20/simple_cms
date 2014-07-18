@@ -1,4 +1,34 @@
 Rails.application.routes.draw do
+  get 'api/index'
+
+  get 'api/create'
+
+  get 'api/store'
+
+  get 'api/show'
+
+  get 'api/edit'
+
+  get 'api/update'
+
+  get 'api/destroy'
+
+  get 'home/index'
+
+  get 'home/create'
+
+  get 'home/store'
+
+  get 'home/show'
+
+  get 'home/edit'
+
+  get 'home/update'
+
+  get 'home/destroy'
+
+  get 'remove/home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
