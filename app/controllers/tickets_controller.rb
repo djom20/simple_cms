@@ -1,4 +1,7 @@
 class TicketsController < ApplicationController
+
+  layout false
+
   def index
   end
 

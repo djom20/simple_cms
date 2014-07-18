@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+
+  layout false
+
   def index
   end
 
