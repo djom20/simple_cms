@@ -5,9 +5,15 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: treddr_rails
+  host: 192.64.118.98
+  username: treddr_userRails
+  password: x2uhRIpBFnM.
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  timeout: 5000
 
 development:
   <<: *default
@@ -23,3 +29,8 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+
+# database: treddr_rails
+# username: treddr_userRails
+# password: x2uhRIpBFnM.
