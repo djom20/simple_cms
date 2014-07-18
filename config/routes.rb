@@ -1,6 +1,39 @@
 Rails.application.routes.draw do
-  resources :api
+  get 'tickets/index'
+
+  get 'tickets/create'
+
+  get 'tickets/store'
+
+  get 'tickets/show'
+
+  get 'tickets/edit'
+
+  get 'tickets/update'
+
+  get 'tickets/destroy'
+
+  get 'tasks/index'
+
+  get 'tasks/create'
+
+  get 'tasks/store'
+
+  get 'tasks/show'
+
+  get 'tasks/edit'
+
+  get 'tasks/update'
+
+  get 'tasks/destroy'
+
   resources :home
+
+  scope 'api' do
+    scope 'v1' do
+      resources :users
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

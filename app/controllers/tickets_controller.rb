@@ -1,7 +1,4 @@
-class ApiController < ApplicationController
-
-  layout false
-
+class TicketsController < ApplicationController
   def index
   end
 
