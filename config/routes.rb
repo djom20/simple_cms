@@ -1,37 +1,13 @@
 Rails.application.routes.draw do
-  get 'tickets/index'
-
-  get 'tickets/create'
-
-  get 'tickets/store'
-
-  get 'tickets/show'
-
-  get 'tickets/edit'
-
-  get 'tickets/update'
-
-  get 'tickets/destroy'
-
-  get 'tasks/index'
-
-  get 'tasks/create'
-
-  get 'tasks/store'
-
-  get 'tasks/show'
-
-  get 'tasks/edit'
-
-  get 'tasks/update'
-
-  get 'tasks/destroy'
-
   resources :home
 
   scope 'api' do
     scope 'v1' do
-      resources :users
+      resources :users do
+        resources :tickets do
+          resources :tasks
+        end
+      end
     end
   end
 
