@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   scope 'api', defaults: {format: :json} do
     scope 'v1', defaults: {format: :json} do
       resources :session, only: [:create, :destroy]
-      resources :tickets, only: [:index, :create, :update, :destroy, :show] do
-        resources :tasks, only: [:index, :create, :update, :destroy, :show]
+      resources :users do 
+        resources :tasks do
+          resources :tickets
+        end
       end
     end
   end

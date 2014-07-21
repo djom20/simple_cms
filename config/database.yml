@@ -7,30 +7,25 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: treddr_rails
-  host: 192.64.118.98
-  username: treddr_userRails
-  password: x2uhRIpBFnM.
+  database: da46opbfultf9t
+  host: ec2-54-225-101-4.compute-1.amazonaws.com
+  username: delnzjmsuhxlly
+  password: AfWvsMb8K19uCo10HWxhGvjr99
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: da46opbfultf9t
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: da46opbfultf9t
 
 production:
   <<: *default
-  database: db/production.sqlite3
-
-
-# database: treddr_rails
-# username: treddr_userRails
-# password: x2uhRIpBFnM.
+  database: da46opbfultf9t

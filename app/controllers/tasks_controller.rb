@@ -4,30 +4,32 @@ class TasksController < ApplicationController
   respond_to :json
 
   def index
-    render json: {response: 'hola', error: false }
+    @tasks = Task.all()
+    if( @tasks.count > 0 )
+      render json: { response: @tasks, error: false, message: '' }
+    else
+      render json: { response: '', error: true, message: 'Not exists tasks' }
+    end
   end
 
   def create
-    render json: {response: 'hola', error: false }
+    render json: { response: 'hola1', error: false }
   end
-
-  # def store
-  #   render json: {response: 'hola', error: false }
-  # end
 
   def show
-    render json: {response: 'hola', error: false }
+    @task = User.where(:id => params[:id])
+    if( @task.count > 0 )
+      render json: { response: @task, error: false, message: nil }
+    else
+      render json: { response: nil, error: true, message: 'Not exists task' }
+    end
   end
 
-  # def edit
-  #   render json: {response: 'hola', error: false }
-  # end
-
   def update
-    render json: {response: 'hola', error: false }
+    render json: { response: 'hola3', error: false }
   end
 
   def destroy
-    render json: {response: 'hola', error: false }
+    render json: { response: 'hola4', error: false }
   end
 end

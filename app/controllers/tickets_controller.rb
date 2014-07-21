@@ -4,30 +4,32 @@ class TicketsController < ApplicationController
   respond_to :json
 
   def index
-    render json: {response: 'hola', error: false }
+    @tickets = Ticket.all()
+    if( @tickets.count > 0 )
+      render json: { response: @tickets, error: false, message: '' }
+    else
+      render json: { response: '', error: true, message: 'Not exists tickets' }
+    end
   end
 
   def create
-    render json: {response: 'hola', error: false }
+    render json: { response: 'hola6', error: false }
   end
-
-  # def store
-  #   render json: {response: 'hola', error: false }
-  # end
 
   def show
-    render json: {response: 'hola', error: false }
+    @ticket = Ticket.where(:id => params[:id])
+    if( @ticket.count > 0 )
+      render json: { response: @ticket, error: false, message: nil }
+    else
+      render json: { response: nil, error: true, message: 'Not exists ticket' }
+    end
   end
 
-  # def edit
-  #   render json: {response: 'hola', error: false }
-  # end
-
   def update
-    render json: {response: 'hola', error: false }
+    render json: { response: 'hola8', error: false }
   end
 
   def destroy
-    render json: {response: 'hola', error: false }
+    render json: { response: 'hola9', error: false }
   end
 end
