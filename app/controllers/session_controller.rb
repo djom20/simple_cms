@@ -4,10 +4,14 @@ class SessionController < ApplicationController
   respond_to :json
 
   def create
-    render json: {response: 'hola10', error: false }
+  	@email = params[:email];
+  	@password = params[:password];
+
+  	$result = User.where(:email => @email, :password => @password)
+    render json: {response: true, error: false, message: "Session Create Successful" }
   end
 
   def destroy
-    render json: {response: 'hola11', error: false }
+    render json: {response: true, error: false, message: "Session Destroy Successful" }
   end
 end

@@ -4,7 +4,9 @@ class TasksController < ApplicationController
   respond_to :json
 
   def index
-    @tasks = Task.all()
+    @user = User.where(:id => params[:user_id])
+    @tasks = @user.tasks.all()
+    # @tasks = Task.all()
     if( @tasks.count > 0 )
       render json: { response: @tasks, error: false, message: '' }
     else

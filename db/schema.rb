@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721194655) do
+ActiveRecord::Schema.define(version: 20140722150248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,22 +19,34 @@ ActiveRecord::Schema.define(version: 20140721194655) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "state"
+    t.integer  "state",       default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tasks_tickets", force: true do |t|
+  create_table "tasks_tickets", id: false, force: true do |t|
     t.integer  "task_id"
     t.integer  "ticket_id"
-    t.integer  "state"
+    t.integer  "state",      default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tasks_tickets", ["task_id", "ticket_id"], name: "index_tasks_tickets_on_task_id_and_ticket_id", using: :btree
+
+  create_table "tasks_users", id: false, force: true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "state",      default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks_users", ["task_id", "user_id"], name: "index_tasks_users_on_task_id_and_user_id", using: :btree
 
   create_table "tickets", force: true do |t|
     t.string   "description"
-    t.string   "state"
+    t.string   "state",       default: "1"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,15 +55,8 @@ ActiveRecord::Schema.define(version: 20140721194655) do
     t.string   "name"
     t.string   "lastname"
     t.string   "email"
-    t.integer  "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users_tasks", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.integer  "state"
+    t.string   "password"
+    t.integer  "state",      default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
