@@ -5,12 +5,12 @@ class TasksController < ApplicationController
 
   def index
     @user = User.where(:id => params[:user_id])
-    @tasks = @user.tasks.all()
+    @tasks = @user.all()
     # @tasks = Task.all()
     if( @tasks.count > 0 )
       render json: { response: @tasks, error: false, message: '' }
     else
-      render json: { response: '', error: true, message: 'Not exists tasks' }
+      render json: { response: nil, error: true, message: 'Not exists tasks' }
     end
   end
 
